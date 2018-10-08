@@ -6,34 +6,6 @@ const REMOVE_COMMENT = 'REMOVE_COMMENT';
 const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
-{
-	type: ADD_COMMENT,
-	text: 'pierwszy komentarz'
-}
-
-{
-    type: EDIT_COMMENT,
-    id: 20,
-    text: 'wyedytowany tekst komentarza'
-}
-
-{
-    type: REMOVE_COMMENT,
-    id: 20
-}
-
-{
-	type: THUMB_UP_COMMENT,
-	id: 20,
-	number: 0
-}
-
-{
-	type: THUMB_DOWN_COMMENT,
-	id: 20,
-	number: 0
-}
-
 
 function addComment(text) {
     return {
@@ -41,35 +13,33 @@ function addComment(text) {
         text,
         id: uuid.v4()
     }
-};
+}
 
-function editComment(newText, id) {
+function editComment(text, id) {
     return {
         type: EDIT_COMMENT,
-        text: newText,
+        text: text,
         id: id
     }
-};
+}
 
 function removeComment(id) {
 	return {
 		type: REMOVE_COMMENT,
 		id: id
 	}
-};
+}
 
-function thumbUpComment (id, newNumber) {
+function thumbUpComment (id) {
 	return {
 		type: THUMB_UP_COMMENT,
 		id: id,
-		number: newNumber + 1
 	}
-};
+}
 
-function thumbDownComment (id, newNumber) {
+function thumbDownComment (id) {
 	return {
 		type: THUMB_DOWN_COMMENT,
 		id: id,
-		number: newNumber - 1
 	}
-};
+}
